@@ -1,0 +1,36 @@
+@use "../../src/scss/breakpoints";
+.jeco-introduction {
+	.wrapper {
+		display: grid;
+		gap: 25px;
+
+		@include breakpoints.for-bp("desktop-switch") {
+			grid-template-columns: 1fr 1fr;
+			column-gap: 8%;
+		}
+		.left {
+			.picture img {
+				border-radius: 50%;
+				aspect-ratio: 1 / 1;
+				object-fit: cover;
+				object-position: center center;
+			}
+
+			.greeting {
+				margin-top: 20px;
+			}
+		}
+		.right {
+			@include breakpoints.for-bp("desktop-switch") {
+				display: flex;
+				align-items: center;
+			}
+
+			.introduction {
+				& * {
+					margin-bottom: 15px;
+				}
+			}
+		}
+	}
+}

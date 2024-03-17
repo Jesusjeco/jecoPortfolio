@@ -1,0 +1,50 @@
+@use "../../src/scss/breakpoints";
+
+.jeco-items-list {
+	.wrapper {
+		display: grid;
+		row-gap: 30px;
+
+		@include breakpoints.for-bp("desktop-switch") {
+			row-gap: 20px;
+			column-gap: 20px;
+		}
+		.title {
+		}
+		.items {
+			.item {
+				display: grid;
+				gap: 10px;
+				@include breakpoints.for-bp("desktop-switch") {
+					gap: 30px;
+					grid-template-columns: 1fr 2fr;
+				}
+				.company_logo {
+					width: 45%;
+					min-width: 250px;
+
+					@include breakpoints.for-bp("desktop-switch") {
+						width: 100%;
+					}
+				}
+				.dates {
+					margin-bottom: 15px;
+				}
+				.job_description {
+					p {
+						margin-bottom: 0.25rem;
+					}
+				}
+			}
+			hr {
+				background-color: #d3d3d35e;
+				border: none;
+				height: 2px;
+				margin: 20px 0;
+				@include breakpoints.for-bp("desktop-switch") {
+					margin: 50px 0;
+				}
+			}
+		}
+	}
+}
