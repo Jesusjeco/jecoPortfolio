@@ -1,0 +1,21 @@
+@use "./breakpoints";
+.single-portfolio {
+	.wrapper {
+		display: grid;
+		gap: 30px;
+		@include breakpoints.for-bp("desktop-lg") {
+			gap: 50px;
+			grid-template-columns: 1fr 1fr;
+		}
+
+        .left{
+            .content{
+                margin-top: 50px;
+                margin-bottom: 20px;
+            }
+            .link{
+                margin-bottom: 40px;
+            }
+        }
+	}
+}

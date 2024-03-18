@@ -10,7 +10,7 @@ $data = get_field('data');
                 <img src="<?= $data['profile_picture']['url'] ?>" alt="">
             </div>
             <div class="greeting">
-                <h2><?= $data['greeting'] ?></h2>
+                <h1 class="h2"><?= $data['greeting'] ?></h1>
             </div>
         </div>
         <div class="right">
