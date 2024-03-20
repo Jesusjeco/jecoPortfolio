@@ -1,6 +1,9 @@
 @use "../../src/scss/breakpoints";
 .jeco-past-works {
 	.wrapper {
+		.content {
+			margin-top: 10px;
+		}
 		.works {
 			margin-top: 30px;
 			display: grid;
@@ -21,6 +24,9 @@
 				background-color: #ebebeb;
 				padding: 15px;
 				border-radius: 10px;
+				@include breakpoints.for-bp("tablet-lg") {
+					padding: 25px;
+				}
 
 				.thumbnail {
 					margin-bottom: 15px;
@@ -31,6 +37,15 @@
 						border-radius: 10px;
 					}
 				}
+			}
+		}
+
+		.button_link {
+			margin-top: 30px;
+			text-align: center;
+
+			@include breakpoints.for-bp("tablet-lg") {
+				margin-top: 75px;
 			}
 		}
 	}

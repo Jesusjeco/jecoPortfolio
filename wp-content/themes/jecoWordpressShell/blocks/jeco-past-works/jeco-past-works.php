@@ -3,19 +3,29 @@
 $data = get_field('data');
 $jeco_past_works_query_query_data = [
     "post_type" => "portfolio",
+    "posts_per_page" => $data['posts_per_page'] ?? -1,
 ];
-$jeco_past_works_query_query = new WP_Query($jeco_past_works_query_query_data);
+$jeco_past_works_query_query = get_query($jeco_past_works_query_query_data);
 ?>
 <div class="jeco-past-works">
     <div class="wrapper">
-        <h2><?= $data['title'] ?></h2>
-
+        <h2>
+            <?= $data['title'] ?>
+        </h2>
+        <?php
+        if ($data['content']): ?>
+            <div class="content">
+                <?= $data['content'] ?>
+            </div>
+            <?php
+        endif;
+        ?>
 
         <?php
-        if ($jeco_past_works_query_query->have_posts()) : ?>
+        if ($jeco_past_works_query_query->have_posts()): ?>
             <div class="works">
                 <?php
-                while ($jeco_past_works_query_query->have_posts()) :
+                while ($jeco_past_works_query_query->have_posts()):
                     $jeco_past_works_query_query->the_post();
 
                     $the_id = get_the_ID();
@@ -32,6 +42,21 @@ $jeco_past_works_query_query = new WP_Query($jeco_past_works_query_query_data);
                         </h3>
                     </a>
                 <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
+
+        <?php
+        $link = $data['button_link'];
+        if ($link):
+            $link_url = $link['url'];
+            $link_title = $link['title'];
+            $link_target = $link['target'] ? $link['target'] : '_self';
+            ?>
+            <div class="button_link">
+                <a class="button button-primary" href="<?php echo esc_url($link_url); ?>"
+                    target="<?php echo esc_attr($link_target); ?>">
+                    <?php echo esc_html($link_title); ?>
+                </a>
             </div>
         <?php endif; ?>
     </div>
