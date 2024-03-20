@@ -2,7 +2,7 @@
 
 function get_query($args)
 {
-    $post_type = (isset($args['post_types']) && $args['post_types'] != "") ? $args['post_types'] : "post";
+    $post_type = (isset($args['post_type']) && $args['post_type'] != "") ? $args['post_type'] : "post";
     $cat = (isset($args['post_categories'])) ? $args['post_categories'] : null;
 
     if (isset($args['posts_per_page'])) {
